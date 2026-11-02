@@ -15,6 +15,8 @@ The complete product catalogue, the 146 men's and 99 women's product images, and
 
 ## Project structure
 
+- `robots.txt` and `404.html` — crawler policy and not-found page for static hosting.
+- `vercel.json` — site-wide browser security headers for the documented Vercel host.
 - `index.html`, `men.html`, `women.html`, `kids.html` — storefront and collections.
 - `images/men cloths/`, `images/women cloth/`, and their image manifests — local clothing images and categories.
 - `js/product-data.js` — local Men/Women/Kids catalogue and INR prices.
@@ -49,3 +51,7 @@ node --test tests/supabase-integration.test.js
 ```
 
 The tests use mocked browser/API responses and inspect local SQL. They do not connect to Supabase or apply migrations.
+
+Canonical URLs and a sitemap need the final public domain; do not publish placeholder URLs.
+Verify the Vercel response headers, HTTPS redirect, and custom 404 page on the deployed
+domain before treating the security-header configuration as live.

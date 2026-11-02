@@ -81,6 +81,7 @@ test('local catalogue includes every collection image with unique demo prices', 
   const window = runBrowserScripts([
     'js/men-image-manifest.js',
     'js/women-image-manifest.js',
+    'js/kids-image-manifest.js',
     'js/product-data.js'
   ]);
   const data = window.RXProductData;
@@ -195,6 +196,8 @@ test('demo COD checkout validates a local bag and stores no delivery details or 
   assert.match(demoCheckout, /Demo only — not submitted/);
   assert.doesNotMatch(demoCheckout, /recipient_name\s*:|address_line_1\s*:|functions\.invoke|fetch\(/i);
   assert.match(checkoutPage, /data-checkout-form/);
+  assert.match(checkoutPage, /<title>Checkout \| RX CLOTHS<\/title>/);
+  assert.match(checkoutPage, /<h1>Checkout<\/h1>/);
   assert.match(checkoutPage, /Cash on Delivery \(simulated\)/);
   assert.match(checkoutPage, /Delivery details are not sent or saved/);
   assert.match(cartPage, /data-cart-checkout/);
@@ -219,4 +222,34 @@ test('demo COD checkout validates a local bag and stores no delivery details or 
     assert.ok(productDataIndex >= 0 && womenManifestIndex >= 0 && womenManifestIndex < productDataIndex,
       `${file} loads women's products before the catalogue`);
   });
+});
+
+test('static SEO fallback files are present without inventing a public domain', () => {
+  const robots = read('robots.txt');
+  const notFound = read('404.html');
+  const vercel = JSON.parse(read('vercel.json'));
+
+  assert.match(robots, /User-agent: \*/);
+  assert.match(robots, /Allow: \//);
+  assert.match(notFound, /<title>Page not found \| RX CLOTHS<\/title>/);
+  assert.match(notFound, /href="index\.html"/);
+  assert.doesNotMatch(robots, /Sitemap:/i);
+  assert.doesNotMatch(notFound, /https?:\/\//i);
+  assert.equal(vercel.headers.length, 1);
+  assert.equal(vercel.headers[0].source, '/(.*)');
+  const headers = Object.fromEntries(vercel.headers[0].headers.map(({ key, value }) => [key, value]));
+  assert.match(headers['Content-Security-Policy'], /default-src 'self'/);
+  assert.match(headers['Content-Security-Policy'], /https:\/\/pruhywawkvqqrapvvoef\.supabase\.co/);
+  assert.equal(headers['X-Content-Type-Options'], 'nosniff');
+  assert.equal(headers['X-Frame-Options'], 'DENY');
+  assert.equal(headers['Referrer-Policy'], 'strict-origin-when-cross-origin');
+  assert.equal(headers['Permissions-Policy'], 'camera=(), geolocation=(), microphone=()');
+  assert.equal(headers['Strict-Transport-Security'], 'max-age=31536000');
+});
+
+test('product detail image placeholder does not request the page as an image', () => {
+  const productPage = read('product.html');
+
+  assert.match(productPage, /<img data-main-image alt="">/);
+  assert.doesNotMatch(productPage, /<img data-main-image src=["']{2}/);
 });

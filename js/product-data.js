@@ -199,133 +199,31 @@ window.RXProductData = {
   ]
 };
 
-const kidsImageGroups = [
-  ['Dresses', 'CLOTHING/DRESSES', [
-    '(6) Instagram.jpg',
-    '2pcs set childrens baby casual collared contrast….jpg',
-    '892135007456300528.jpg',
-    '933934041499270789.jpg',
-    'Conjunto para niño.jpg',
-    'kids-casual-set.jpg',
-    'Shein 2pcs set.jpg',
-    'SHEIN 2pcs_Set Unisex Baby Boy_Girl Casual Cute Striped Short Sleeve T-Shirt And Denim Shorts Set, Baby Outfit Sets, Streetwear, Spring_Summer.jpg',
-    'Trendy Baby Dress.jpg',
-    'Trendy Unisex Baby Embroidered Tee & Denim Shorts Set 🧸👖 _ Casual.jpg'
-  ]],
-  ['Jeans', 'CLOTHING/JEANS', [
-    '1141803311762040519.jpg',
-    '447404544254392155.jpg',
-    '460844974390200556.jpg',
-    '843791680204907652.jpg',
-    'Jeans.jpg',
-    'KIDSCOOL SPACE Baby Little Big Boys Shorts,Girls Ribbed Elastic Waist Summer Half Pants Cargo Jeans.jpg',
-    'Shop Trendy Korean Clothing Online at KKAMI_nl - Page 3.jpg',
-    'Sonbahar kış erkek pantolon moda kot baskılı mektup Patchwork çocuk giyim kalınlaşmak sıcak kot pantolon 4 5 6 7 8 9 yıl erkek - AliExpress 1501.jpg',
-    'View All _ ZARA United States.jpg',
-    "Women's & Men's Clothing, Shop Online Fashion.jpg"
-  ]],
-  ['Skirts', 'CLOTHING/SKIRTS', [
-    '626352260670044117.jpg',
-    'Apricot Preppy Suede Plain Pleated Embellished….jpg',
-    'Boden Clothing for Women and Children.jpg',
-    'Cotton On Kids - Frill Denim Skirt - Balmoral Black  Size - 3-4 Women.jpg',
-    'Girls Bow Front Striped Skirt _ SHEIN USA.jpg',
-    'Girls’ Skirts & Skorts.jpg',
-    'Jupe à motif - Enfant fille.jpg',
-    'Look at this Chocolate.jpg',
-    "Mayoral Kids' Clothing.jpg",
-    "Otter Avenue Clothes  _ Carter's.jpg"
-  ]],
-  ['T-Shirts', 'CLOTHING/T-SHIRTS', [
-    '1059471881123434733.jpg',
-    '121175046221131918.jpg',
-    'Boden Clothing for Women and Children.jpg',
-    'Boys Clothes & Pajamas _ Sizes 2-12 _ Hanna Andersson.jpg',
-    "Boys' T Shirts _ ZARA Ireland.jpg",
-    'Buy Blue_Green_Yellow Digger - Manica corta - T-shirt a blocchi di colore (3mesi -7anni) (3mesi -7anni) da Next Italy.jpg',
-    'Camisa de colores.jpg',
-    'Once Kids on Instagram_ _Vintage Gymboree Rainbow.jpg',
-    'Shop Kids Clothing _ Target Australia.jpg',
-    'ZARA United States _ New Collection Online.jpg'
-  ]],
-  ['Tops', 'CLOTHING/TOPS', [
-    '512988213826611219.jpg',
-    '757238124887842719.jpg',
-    '865817097120791386.jpg',
-    '885379607990356980.jpg',
-    '987343918314760396.jpg',
-    'BLUSA VOLANTES CUADRO VICHY.jpg',
-    'Embroidery Long Sleeve Children Shirts Cotton Girls Blouse for Kids Spring Cute Toddler Lace Tops Girls Clothing for 12M-8Y.jpg',
-    'Flutter-Sleeve Tie-Back Matching Print Top for….jpg',
-    'STRIPED DENIM TOP.jpg',
-    'Vestido Aurora.jpg'
-  ]],
-  ['Hoodies', 'Seasonal & occasion/HODDIES', [
-    '1127377719235963867.jpg',
-    '440438038578850923.jpg',
-    '505599495673941705.jpg',
-    '894949757185518818.jpg',
-    '978477456575601016.jpg',
-    'Lefties  UAE - Dubai_Sharjah_Ajman_UAQ_Fujairah _ Fashion for woman, man, kids and babies.jpg',
-    'Our extra-soft hoodie was made for mischievous….jpg',
-    'SHEIN Toddler Boys Letter Patched Colorblock Hoodie.jpg',
-    'Special Prices Collection _ ZARA Hungary.jpg',
-    "_Keep your little one cozy with our Children's….jpg"
-  ]],
-  ['Jackets', 'Seasonal & occasion/JECKETS', [
-    '116530709107069423.jpg',
-    '527202700142538415.jpg',
-    '668925350943070543.jpg',
-    '714383559665071033.jpg',
-    '772719248582214829.jpg',
-    'Color Block Puffer Jacket, Sherpa Lined Hood, Olive Beige Tan Kids Outerwear.jpg',
-    'Corduroy jacket Sherpa lined! Perfect for toddler boys or toddler girls.jpg',
-    'natureza viva - denim industry - infantil meninos.jpg',
-    'Toddler Girls Zip Up Flap Pocket Teddy Panel….jpg',
-    'Young Girl Solid Color Front Button Long Sleeve Jacket, Autumn_Winter.jpg'
-  ]],
-  ['Sweatshirts', 'Seasonal & occasion/SWEATSHIRTS', [
-    "1½ - 6 Years _ Boy Baby Boys' Clothes _ ZARA Spain.jpg",
-    '363736107426540874.jpg',
-    '543950461264376117.jpg',
-    '605593481132196827.jpg',
-    "Baby Boys' Sweatshirt _ ZARA United States.jpg",
-    'Colour block printed sweatshirt - Sweatshirts….jpg',
-    'Moletom com Gola Falsa de 2 Peças para Menino Jovem, Novo Moletom Grosso de Manga Longa para Menino Jovem no Outono_Inverno.jpg',
-    'New Autumn Baby Boys Clothes Children Girls Fashion Striped T-Shirt Toddler Casual Costume Kids Outfits Infant Sportswear - AliExpress 1501.jpg',
-    'POLO PUNTO RAYAS SNOOPY PEANUTS™.jpg',
-    'Sudaderitas para niña pequeña baratas.jpg'
-  ]]
-];
-
-const kidsImageProducts = kidsImageGroups.flatMap(([category, folder, filenames]) =>
-  filenames.map((filename, index) => {
-    const encodedPath = `${folder}/${filename}`.split('/').map(encodeURIComponent).join('/');
-    const name = `Kids ${category} - ${filename.replace(/\.[^.]+$/, '')}`;
-    const sizes = ['2-3Y', '4-5Y', '6-7Y', '8-9Y'];
-    return {
-      id: `rx-kids-style-${category.toLowerCase().replace(/[^a-z]+/g, '-')}-${String(index + 1).padStart(2, '0')}`,
-      audience: 'kids',
-      category,
-      subcategory: category,
-      name,
-      description: `${category} from the kids collection.`,
-      price: 699,
-      createdAt: '2026-10-21',
-      colors: ['As shown'],
-      sizes,
-      variants: sizes.map((size, sizeIndex) => ({
-        color: 'As shown',
-        size,
-        stock: 3 + ((index + sizeIndex) % 4)
-      })),
-      images: [{
-        src: `images/kids%20cloths/${encodedPath}`,
-        alt: `Kids' ${category.toLocaleLowerCase()} style`
-      }]
-    };
-  })
-);
+const kidsImageCounts = new Map();
+const kidsImageProducts = window.RXKidsImageManifest.map((image, index) => {
+  const categoryIndex = kidsImageCounts.get(image.category) || 0;
+  kidsImageCounts.set(image.category, categoryIndex + 1);
+  const filename = decodeURIComponent(image.src).split('/').pop();
+  const sizes = ['2-3Y', '4-5Y', '6-7Y', '8-9Y'];
+  return {
+    id: `rx-kids-style-${image.category.toLowerCase().replace(/[^a-z]+/g, '-')}-${String(categoryIndex + 1).padStart(2, '0')}`,
+    audience: 'kids',
+    category: image.category,
+    subcategory: image.subcategory,
+    name: `Kids ${image.category} - ${filename.replace(/\.[^.]+$/, '')}`,
+    description: `${image.category} from the kids collection.`,
+    price: 699,
+    createdAt: '2026-10-21',
+    colors: ['As shown'],
+    sizes,
+    variants: sizes.map((size, sizeIndex) => ({
+      color: 'As shown',
+      size,
+      stock: 3 + ((index + sizeIndex) % 4)
+    })),
+    images: [{ src: image.src, alt: image.alt }]
+  };
+});
 window.RXProductData.products = [
   ...window.RXProductData.products.filter((product) => product.audience !== 'kids'),
   ...kidsImageProducts

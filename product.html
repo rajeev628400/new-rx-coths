@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/men-image-manifest.js" defer></script>
   <script src="js/women-image-manifest.js" defer></script>
+  <script src="js/kids-image-manifest.js" defer></script>
   <script src="js/product-data.js" defer></script>
   <script src="js/catalogue.js" defer></script>
   <script src="js/main.js" defer></script>
@@ -28,7 +29,7 @@
     <p class="catalogue-message storage-message" data-storage-message hidden></p>
     <section class="product-layout" data-product-content hidden>
       <div class="product-gallery">
-        <div class="product-image-main"><img data-main-image src="" alt=""></div>
+        <div class="product-image-main"><img data-main-image alt=""></div>
         <div class="product-thumbnails" data-product-thumbnails aria-label="Product images"></div>
       </div>
       <div class="product-information">
@@ -42,7 +43,7 @@
           <label>Colour<select name="color" data-variant-color required></select></label>
           <div class="size-label-row"><span>Size</span><button type="button" class="size-guide-trigger" data-open-size-guide>Size guide</button></div>
           <div class="size-options" data-variant-sizes role="group" aria-label="Select size"></div>
-          <label>Quantity<div class="quantity-control"><button type="button" data-quantity-down aria-label="Decrease quantity">âˆ’</button><input type="number" name="quantity" data-quantity min="1" max="1" value="1" inputmode="numeric" aria-label="Quantity"><button type="button" data-quantity-up aria-label="Increase quantity">+</button></div></label>
+          <label>Quantity<div class="quantity-control"><button type="button" data-quantity-down aria-label="Decrease quantity">&minus;</button><input type="number" name="quantity" data-quantity min="1" max="1" value="1" inputmode="numeric" aria-label="Quantity"><button type="button" data-quantity-up aria-label="Increase quantity">+</button></div></label>
           <div class="product-action-row"><button class="product-primary-action" type="submit" data-add-to-cart>Add to bag</button><button class="product-secondary-action" type="button" data-add-to-wishlist>Add to wishlist</button></div>
           <p class="product-action-message" data-product-message role="status" aria-live="polite"></p>
         </form>
@@ -52,18 +53,18 @@
       </div>
     </section>
     <section class="catalogue-message product-not-found" data-product-not-found hidden>
-      <h1>Product not found</h1><p>Choose an available style to see its details.</p><a class="text-link" href="search.html">Browse styles <span aria-hidden="true">â†’</span></a>
+      <h1>Product not found</h1><p>Choose an available style to see its details.</p><a class="text-link" href="search.html">Browse styles <span aria-hidden="true">&rarr;</span></a>
     </section>
     <section class="related-products" data-related-products hidden>
-      <div class="section-heading"><div><p class="eyebrow">Keep exploring</p><h2>Related styles</h2></div><a class="text-link" data-related-link href="search.html">View the collection <span aria-hidden="true">â†’</span></a></div>
+      <div class="section-heading"><div><p class="eyebrow">Keep exploring</p><h2>Related styles</h2></div><a class="text-link" data-related-link href="search.html">View the collection <span aria-hidden="true">&rarr;</span></a></div>
       <div class="product-grid" data-related-grid></div>
     </section>
     <dialog class="size-guide-dialog" data-size-guide>
-      <div class="size-guide-heading"><h2>Size guide</h2><button type="button" data-close-size-guide aria-label="Close size guide">Ã—</button></div>
+      <div class="size-guide-heading"><h2>Size guide</h2><button type="button" data-close-size-guide aria-label="Close size guide">&times;</button></div>
       <p>This general guide is only a demo reference; garment measurements and fit have not been verified.</p>
       <div class="size-guide-table-wrap"><table><thead><tr><th>Label</th><th>General fit note</th></tr></thead><tbody><tr><td>XS / S</td><td>Smaller fit range</td></tr><tr><td>M / L</td><td>Mid fit range</td></tr><tr><td>XL and above</td><td>Roomier fit range</td></tr><tr><td>Kids age sizes</td><td>Use the child's height to choose a size once real measurements are available</td></tr></tbody></table></div>
     </dialog>
   </main>
-  <footer class="site-footer"><a class="wordmark footer-wordmark" href="index.html">RX <span>CLOTHS</span></a><nav aria-label="Footer navigation"><a href="contact.html">Contact</a><a href="faq.html">FAQs</a><a href="account.html">Account</a><a href="orders.html">Orders</a></nav><p>Â© <span data-current-year>2026</span> RX CLOTHS.</p></footer>
+  <footer class="site-footer"><a class="wordmark footer-wordmark" href="index.html">RX <span>CLOTHS</span></a><nav aria-label="Footer navigation"><a href="contact.html">Contact</a><a href="faq.html">FAQs</a><a href="account.html">Account</a><a href="orders.html">Orders</a></nav><p>&copy; <span data-current-year>2026</span> RX CLOTHS.</p></footer>
 </body>
 </html>
